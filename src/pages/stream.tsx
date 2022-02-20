@@ -3,11 +3,12 @@ import { Box, Button, Center, Grid, GridItem, Table, Tbody, Td, Text, Th, Thead,
 import React from 'react'
 import { useQuery } from 'urql'
 import { DarkModeSwitch } from '../components/DarkModeSwitch'
-import { Image } from 'cloudinary-react'
 import { Container } from '../components/Container'
 import moment from 'moment'
 import {MomentFormatSpecification} from 'moment'
 import Link from 'next/link'
+import {Image} from 'cloudinary-react';
+
 
 const CarsQuery = `
 query Find_Car($lp: String!) {
@@ -62,7 +63,7 @@ const Stream:  React.FC = ({}) => {
     const time_number: number = +time;
     const corrected_time = new Date(time_number).toLocaleString();
     const moment_repr = moment(time_number).format('MMMM Do YYYY h:mm:ss a');
-    
+
     return (
         <Container>
             <Link href={"/"}><Button>Home</Button></Link>
@@ -71,12 +72,7 @@ const Stream:  React.FC = ({}) => {
             <div>{moment_repr}
             </div>
             <div>
-                <Image
-                    publicId={"stream/latest.jpg"}
-                    width="400"
-                    height="400"
-                    radius="20"
-                />
+                 <Image cloudName="dsqw5kd59" publicId="stream/latest.jpg" />
             </div>
                 <Center>
                     <Grid

@@ -1,6 +1,5 @@
 import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react'
 import { createClient, Provider } from 'urql';
-import { CloudinaryContext } from "cloudinary-react";
 
 console.log("process.env.API_URL = ", process.env.NEXT_PUBLIC_API_URL);
 const client = createClient({
@@ -11,7 +10,6 @@ import theme from '../theme'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <CloudinaryContext cloudName="dsqw5kd59">
       <ChakraProvider resetCSS theme={theme}>
         <ColorModeProvider
           options={{
@@ -23,7 +21,6 @@ function MyApp({ Component, pageProps }) {
           </Provider>
         </ColorModeProvider>
       </ChakraProvider>
-    </CloudinaryContext>
   )
 }
 
