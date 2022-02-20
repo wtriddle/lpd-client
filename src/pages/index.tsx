@@ -98,7 +98,7 @@ const Index = () => (
                         <Link href="https://reactjs.org/"><Text fontSize={35} _hover={{"textDecoration": "underline", "cursor": "pointer"}}>ReactJS</Text></Link>
                         <div>The client you are using right now was developed by reading, watching, and using online user guides, and reading through excellent documentations of code</div>
                     </Text>
-                    <Link href="https://app.mosaicsensed.com"><Button size="lg" m={6}>View The Demo Client Page</Button></Link>
+                    <Link href="/stream"><Button size="lg" m={6}>View The Demo Client Page</Button></Link>
                 </Container>
             </Container>
             

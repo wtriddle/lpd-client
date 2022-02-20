@@ -46,8 +46,6 @@ query Car_stream {
     }
 }
 `
-
-
 const Stream:  React.FC = ({}) => {
     const [version, setVersion] = useState("");
     /* GraphQL Cars Stream Fetch */
@@ -77,7 +75,7 @@ const Stream:  React.FC = ({}) => {
         },
       });
 
-      const myImage = cld.image('stream/latest').setVersion(version);
+    const myImage = cld.image('stream/latest').setVersion(version);
 
     return (
         <Container>
