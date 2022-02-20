@@ -8,9 +8,10 @@
   "dependencies": {
     "@chakra-ui/icons": "^1.0.0",
     "@chakra-ui/react": "^1.4.2",
+    "@cloudinary/react": "^1.1.0",
+    "@cloudinary/url-gen": "^1.6.0",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "cloudinary-react": "^1.7.1",
     "framer-motion": "^4.0.3",
     "graphql": "^16.2.0",
     "lodash": "^4.17.21",

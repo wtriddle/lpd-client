@@ -1,13 +1,15 @@
 /* Main Streaming Page recieving InCapture Car stream from GraphQL */
 import { Box, Button, Center, Grid, GridItem, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useQuery } from 'urql'
 import { DarkModeSwitch } from '../components/DarkModeSwitch'
 import { Container } from '../components/Container'
 import moment from 'moment'
 import {MomentFormatSpecification} from 'moment'
 import Link from 'next/link'
-import {Image} from 'cloudinary-react';
+import {Cloudinary} from "@cloudinary/url-gen";
+import { AdvancedImage } from '@cloudinary/react'
+
 
 
 const CarsQuery = `
@@ -47,8 +49,13 @@ query Car_stream {
 
 
 const Stream:  React.FC = ({}) => {
-
+    const [version, setVersion] = useState("");
     /* GraphQL Cars Stream Fetch */
+    useEffect(() => {
+        fetch("https://lpd.mosaicsensed.com/version")
+        .then(response => response.json())
+        .then(data => setVersion(data.version))
+    },[]);
     const [{data, fetching, error}, reExecQuery] = useQuery({
         query: CarsStream
     });
@@ -57,12 +64,20 @@ const Stream:  React.FC = ({}) => {
     if (!fetching) console.log(data);
     let car_index = 0;
     const {car_stream} = data;
-    
     /* Updated Time Conversion & Display */
     const time = car_stream.cars[0].updatedAt;
     const time_number: number = +time;
     const corrected_time = new Date(time_number).toLocaleString();
     const moment_repr = moment(time_number).format('MMMM Do YYYY h:mm:ss a');
+
+
+    const cld = new Cloudinary({
+        cloud: {
+          cloudName: 'dsqw5kd59'
+        },
+      });
+
+      const myImage = cld.image('stream/latest').setVersion(version);
 
     return (
         <Container>
@@ -72,7 +87,7 @@ const Stream:  React.FC = ({}) => {
             <div>{moment_repr}
             </div>
             <div>
-                 <Image cloudName="dsqw5kd59" publicId="stream/latest.jpg" />
+                 <AdvancedImage cldImg={myImage} />
             </div>
                 <Center>
                     <Grid
