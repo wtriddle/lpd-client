@@ -1,31 +1,13 @@
 /* Main Streaming Page recieving InCapture Car stream from GraphQL */
-import { Box, Button, Center, Grid, GridItem, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react'
+import { Button, Center, Grid, GridItem, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { useQuery } from 'urql'
 import { DarkModeSwitch } from '../components/DarkModeSwitch'
 import { Container } from '../components/Container'
 import moment from 'moment'
-import {MomentFormatSpecification} from 'moment'
 import Link from 'next/link'
 import {Cloudinary} from "@cloudinary/url-gen";
 import { AdvancedImage } from '@cloudinary/react'
-
-
-
-const CarsQuery = `
-query Find_Car($lp: String!) {
-    find_car(lp: $lp) {
-      lp
-      car_model
-      car_color
-      createdAt
-      updatedAt
-      location
-      name
-      state
-    }
-  }
-`
 
 
 const CarsStream = `
@@ -62,12 +44,16 @@ const Stream:  React.FC = ({}) => {
     if (!fetching) console.log(data);
     let car_index = 0;
     const {car_stream} = data;
-    /* Updated Time Conversion & Display */
-    const time = car_stream.cars[0].updatedAt;
-    const time_number: number = +time;
-    const corrected_time = new Date(time_number).toLocaleString();
-    const moment_repr = moment(time_number).format('MMMM Do YYYY h:mm:ss a');
-
+    let moment_repr: any;
+    if(car_stream.cars == []) {
+        /* Updated Time Conversion & Display */
+        const time = car_stream.cars[0].updatedAt;
+        const time_number = +time;
+        moment_repr = moment(time_number).format('MMMM Do YYYY h:mm:ss a');
+    }
+    else {
+        moment_repr = moment().format('MMMM Do YYYY h:mm:ss a');
+    }
 
     const cld = new Cloudinary({
         cloud: {
@@ -87,6 +73,7 @@ const Stream:  React.FC = ({}) => {
             <div>
                  <AdvancedImage cldImg={myImage} />
             </div>
+            {car_stream?.cars.length == 0 ? <Container sx={{pb:100}}>There are no cars in the stream</Container> : 
                 <Center>
                     <Grid
                       templateColumns='repeat(3, 1fr)'
@@ -133,6 +120,7 @@ const Stream:  React.FC = ({}) => {
                     </GridItem>)})}
                     </Grid>
                 </Center>
+            }
                 
     </Container>
     );
