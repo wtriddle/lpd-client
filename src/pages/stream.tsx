@@ -65,7 +65,10 @@ const Stream:  React.FC = ({}) => {
 
     return (
         <Container sx={{height:"100vh"}}>
-            <Link href={"/"}><Button sx={{m:2.5}}>Home</Button></Link>
+            <Container sx={{display: "flex", flexDirection: "row"}}>
+                <Link href={"/"}><Button size="lg" sx={{m:2.5}}>Home</Button></Link>
+                <Link href="https://github.com/wtriddle/lpd-server"><Button size="lg" sx={{m:2.5}}>View API Repository </Button></Link>
+            </Container>
             <DarkModeSwitch/>
             <Text fontSize='6xl'>Streaming Page</Text>
             <div>{moment_repr}
