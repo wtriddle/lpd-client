@@ -67,15 +67,14 @@ const Stream:  React.FC = ({}) => {
         <Container sx={{height:"100vh"}}>
             <Container sx={{display: "flex", flexDirection: "row"}}>
                 <Link href={"/"}><Button size="lg" sx={{m:2.5}}>Home</Button></Link>
-                <Link href="https://github.com/wtriddle/lpd-server"><Button size="lg" sx={{m:2.5}}>View API Repository </Button></Link>
+                <Link href="https://github.com/wtriddle/lpd-server"><Button size="lg" sx={{m:2.5}}>View API Repository</Button></Link>
             </Container>
             <DarkModeSwitch/>
             <Text fontSize='6xl'>Streaming Page</Text>
-            <div>{moment_repr}
-            </div>
-            <div>
+            <Text fontSize="xl">{moment_repr}</Text>
+            <Container sx={{m:5}}>
                  <AdvancedImage cldImg={myImage} />
-            </div>
+            </Container>
             {car_stream?.cars.length == 0 ? <Container sx={{pb:100}}>There are no cars in the stream</Container> : 
                 <Center>
                     <Grid
