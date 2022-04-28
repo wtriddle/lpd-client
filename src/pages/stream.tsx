@@ -7,7 +7,7 @@ import { Container } from '../components/Container'
 import moment from 'moment'
 import Link from 'next/link'
 import {Cloudinary} from "@cloudinary/url-gen";
-import { AdvancedImage } from '@cloudinary/react'
+import { AdvancedImage } from "@cloudinary/react"
 
 
 const CarsStream = `
@@ -59,13 +59,13 @@ const Stream:  React.FC = ({}) => {
         cloud: {
           cloudName: 'dsqw5kd59'
         },
-      });
+    });
 
     const myImage = cld.image('stream/latest').setVersion(version);
 
     return (
-        <Container>
-            <Link href={"/"}><Button>Home</Button></Link>
+        <Container sx={{height:"100vh"}}>
+            <Link href={"/"}><Button sx={{m:2.5}}>Home</Button></Link>
             <DarkModeSwitch/>
             <Text fontSize='6xl'>Streaming Page</Text>
             <div>{moment_repr}

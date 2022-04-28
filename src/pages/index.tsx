@@ -3,8 +3,6 @@ import { Container } from "../components/Container";
 import Link from "next/link";
 import Image from "next/image"
 
-
-
 const Index = () => (
     <Container maxW={"-webkit-max-content"}>
         <Heading size="4xl">Senior Project App Landing Page</Heading>
@@ -16,7 +14,7 @@ const Index = () => (
             m={5}
         >
             <Link href="/stream"><Button size="lg" mb={6}>View The Demo Page</Button></Link>
-            <Link href="https://github.com/wtriddle/lpd-app"><Button size="lg" mb={6}>View The Code Repository </Button></Link>
+            <Link href="https://github.com/wtriddle/lpd-client"><Button size="lg" mb={6}>View The Code Repository </Button></Link>
         </Grid>
         <Heading mb={6} size="xl">By The FPGA Purists</Heading>
 
@@ -29,7 +27,7 @@ const Index = () => (
         >
             <Container>
                 <Image src="/pynq.jpg" width={700} height={450}></Image>
-                <Text fontSize='xs'>Figure 1 Overall App Design (Placeholder)</Text>
+                <Text fontSize='s'>Figure 1 PYNQ IoT Device</Text>
             </Container>
             
             <Container>
@@ -63,7 +61,7 @@ const Index = () => (
                         <Link href="https://graphql.org"><Text fontSize={35} _hover={{"textDecoration": "underline", "cursor": "pointer"}}>GraphQL</Text></Link>
                         <Link href="https://www.postgresql.org/"><Text fontSize={35} _hover={{"textDecoration": "underline", "cursor": "pointer"}}>PostgreSQL</Text></Link>
                         <Link href="https://mikro-orm.io/"><Text fontSize={35} _hover={{"textDecoration": "underline", "cursor": "pointer"}}>MikroOrm</Text></Link>
-                        <div>The server was developed by reading, watching, and using online user guides, and reading through excellent documentations of code</div>
+                        <div> The server was developed using excellent web technologies and documentations. <br/> The server was deployed on a DigitalOcean VPS with Dokku and Docker.</div>
                     </Text>
                     <Link href="https://lpd.mosaicsensed.com/graphql"><Button size="lg" m={6}>View The API</Button></Link>
                 </Container>
@@ -71,7 +69,7 @@ const Index = () => (
 
             <Container>
                 <Image src="/ServerDesign.jpg" width={974} height={540}></Image>
-                <Text fontSize='xs'>Figure 2 Server Design</Text>
+                <Text fontSize='s'>Figure 2 Server Design</Text>
             </Container>
             
         </Grid>
@@ -84,7 +82,7 @@ const Index = () => (
         >
             <Container>
                 <Image src="/ClientDesign.jpg" width={1069} height={391}></Image>
-                <Text fontSize='xs'>Figure 3 Client Design</Text>
+                <Text fontSize='s'>Figure 3 Client Design</Text>
             </Container>
 
             <Container>
@@ -96,14 +94,14 @@ const Index = () => (
                         <Link href="https://www.apollographql.com"><Text fontSize={35} _hover={{"textDecoration": "underline", "cursor": "pointer"}}>Apollo</Text></Link>
                         <Link href="https://nextjs.org/"><Text fontSize={35} _hover={{"textDecoration": "underline", "cursor": "pointer"}}>NextJS</Text></Link>
                         <Link href="https://reactjs.org/"><Text fontSize={35} _hover={{"textDecoration": "underline", "cursor": "pointer"}}>ReactJS</Text></Link>
-                        <div>The client you are using right now was developed by reading, watching, and using online user guides, and reading through excellent documentations of code</div>
+                        <div>The client was developed using NextJS and ReactJS. <br/> The client was deployed using Vercel.  </div>
                     </Text>
                     <Link href="/stream"><Button size="lg" m={6}>View The Demo Client Page</Button></Link>
                 </Container>
             </Container>
             
         </Grid>
-        <Text m={10}>This is a footer</Text>
+        <Text m={10}>Thank you to the Cal Poly Pomona Electrical and Computer Engineering Department and all faculty for involved!</Text>
     </Container>
 );
 
